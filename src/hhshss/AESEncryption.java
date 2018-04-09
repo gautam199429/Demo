@@ -105,7 +105,7 @@ public class AESEncryption {
     * @throws BadPaddingException
     * @throws IllegalBlockSizeException
     */
-    public static byte[] decrypt(String plainText, byte[] secret)
+    public static byte[] decrypt(byte[] plainText, byte[] secret)
                 throws InvalidKeyException, IOException, IllegalBlockSizeException,
                 BadPaddingException,Exception {
 		SecretKeySpec sk = new SecretKeySpec(secret, AES_ALGORITHM);
