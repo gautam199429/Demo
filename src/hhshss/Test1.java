@@ -8,17 +8,21 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class Test1 {
 public static void main(String[] args) {
-    Mac sha512_HMAC = null;
+    Mac sha256_HMAC = null;
     String result = null;
-    String key =  "Welcome1";
+    String key =  "Gautam Kumar Sah"
+    		+ "Gourav kumar"
+    		+ "Deoghar"
+    		+ "Jharkhand"
+    		+ "814112";
 
     try{
         byte [] byteKey = key.getBytes("UTF-8");
-        final String HMAC_SHA512 = "HmacSHA512";
-        sha512_HMAC = Mac.getInstance(HMAC_SHA512);      
-        SecretKeySpec keySpec = new SecretKeySpec(byteKey, HMAC_SHA512);
-        sha512_HMAC.init(keySpec);
-        byte [] mac_data = sha512_HMAC.
+        final String HMAC_SHA256 = "HmacSHA256";
+        sha256_HMAC = Mac.getInstance(HMAC_SHA256);      
+        SecretKeySpec keySpec = new SecretKeySpec(byteKey, HMAC_SHA256);
+        sha256_HMAC.init(keySpec);
+        byte [] mac_data = sha256_HMAC.
          doFinal("My message".getBytes("UTF-8"));
         //result = Base64.encode(mac_data);
         result = bytesToHex(mac_data);
@@ -44,7 +48,7 @@ public static String bytesToHex(byte[] bytes) {
         int v = bytes[j] & 0xFF;
         hexChars[j * 2] = hexArray[v >>> 4];
         hexChars[j * 2 + 1] = hexArray[v & 0x0F];
-    }
+    										 }
     return new String(hexChars);
-}
+	}
 }
